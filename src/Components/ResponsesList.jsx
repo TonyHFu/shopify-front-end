@@ -7,9 +7,12 @@ function ResponsesList(props) {
 	const { responses, loading } = props;
 	return (
 		<ul id="messages">
-			{responses.map(response => {
+			{responses.map((response, i) => {
 				return (
-					<li className={classNames(response.type)}> {response.message}</li>
+					<li key={i} className={classNames(response.type)}>
+						{" "}
+						{response.message}
+					</li>
 				);
 			})}
 			{loading && <Loading></Loading>}

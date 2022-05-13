@@ -4,16 +4,16 @@ import "./styles/Loading.scss";
 function Loading() {
 	return (
 		<div id="loading">
-			<div class="wave"></div>
-			<div class="wave"></div>
-			<div class="wave"></div>
-			<div class="wave"></div>
-			<div class="wave"></div>
-			<div class="wave"></div>
-			<div class="wave"></div>
-			<div class="wave"></div>
-			<div class="wave"></div>
-			<div class="wave"></div>
+			<div className="wave"></div>
+			<div className="wave"></div>
+			<div className="wave"></div>
+			<div className="wave"></div>
+			<div className="wave"></div>
+			<div className="wave"></div>
+			<div className="wave"></div>
+			<div className="wave"></div>
+			<div className="wave"></div>
+			<div className="wave"></div>
 		</div>
 	);
 }

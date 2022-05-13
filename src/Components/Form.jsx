@@ -64,14 +64,31 @@ function Form(props) {
 			.then(completion => {
 				const completionSentence = completion.data.choices[0].text;
 
-				setResponses(prev => [
-					...prev,
-					{
-						type: "response",
-						message: completionSentence,
-					},
-				]);
+				setResponses(prev => {
+					const newResponses = [
+						...prev,
+						{
+							type: "response",
+							message: completionSentence,
+						},
+					];
+
+					const storedConversations = JSON.parse(
+						localStorage.getItem("conversations")
+					);
+
+					storedConversations[selectedBot] = newResponses;
+					localStorage.setItem(
+						"conversations",
+						JSON.stringify(storedConversations)
+					);
+
+					return newResponses;
+				});
+
 				setLoading(false);
+
+				return () => {};
 			})
 			.catch(error => {
 				if (error.response) {
