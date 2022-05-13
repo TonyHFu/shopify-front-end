@@ -1,4 +1,5 @@
 import React from "react";
+import "./styles/ResponsesList.scss";
 
 function ResponsesList(props) {
 	const { responses } = props;
@@ -7,10 +8,11 @@ function ResponsesList(props) {
 		<ul>
 			{responses.map(response => {
 				return (
-					<li>
-						<p>prompt: {response.prompt}</p>
-						<p>response: {response.completed}</p>
-					</li>
+					<div id="messages">
+						<li className="prompt">prompt: {response.prompt}</li>
+
+						<li className="response">response: {response.completed}</li>
+					</div>
 				);
 			})}
 		</ul>
