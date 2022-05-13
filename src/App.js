@@ -8,8 +8,8 @@ function App() {
 	const [responses, setResponses] = useState([]);
 	return (
 		<div className="App">
-			<Form props={setResponses}></Form>
-			<ResponsesList props={responses}></ResponsesList>
+			<Form setResponses={setResponses}></Form>
+			<ResponsesList responses={responses}></ResponsesList>
 		</div>
 	);
 }

@@ -2,12 +2,15 @@ import React from "react";
 
 function ResponsesList(props) {
 	const { responses } = props;
+	console.log("responses", responses);
 	return (
 		<ul>
 			{responses.map(response => {
-				<li>
-					<p>{response}</p>
-				</li>;
+				return (
+					<li>
+						<p>{response}</p>
+					</li>
+				);
 			})}
 		</ul>
 	);

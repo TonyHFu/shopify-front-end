@@ -7,7 +7,9 @@ const configuration = new Configuration({
 
 const openai = new OpenAIApi(configuration);
 
-function Form() {
+function Form(props) {
+	const { setResponses } = props;
+
 	const [prompt, setPrompt] = useState("");
 
 	const handleChange = e => {
@@ -27,6 +29,8 @@ function Form() {
 			});
 			const completionSentence = completion.data.choices[0].text;
 			console.log(completionSentence);
+
+			setResponses(prev => [...prev, completionSentence]);
 		} catch (error) {
 			if (error.response) {
 				console.log(error.response.status);
