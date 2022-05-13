@@ -61,7 +61,7 @@ function App() {
 
 	useEffect(() => {
 		if (localStorage.getItem("conversations") === null) {
-			console.log("empty localstorage");
+			// console.log("empty localstorage");
 			localStorage.setItem(
 				"conversations",
 				JSON.stringify({
@@ -72,15 +72,15 @@ function App() {
 					Anger: [],
 				})
 			);
-			console.log(
-				"filled with: ",
-				JSON.parse(localStorage.getItem("conversations"))
-			);
+			// console.log(
+			// 	"filled with: ",
+			// 	JSON.parse(localStorage.getItem("conversations"))
+			// );
 		} else {
-			console.log(
-				"stored conversations",
-				JSON.parse(localStorage.getItem("conversations"))
-			);
+			// console.log(
+			// 	"stored conversations",
+			// 	JSON.parse(localStorage.getItem("conversations"))
+			// );
 			const currentConversation = JSON.parse(
 				localStorage.getItem("conversations")
 			)[selectedBot];
