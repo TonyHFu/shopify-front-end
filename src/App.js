@@ -22,10 +22,11 @@ const fixture = [
 function App() {
 	const [responses, setResponses] = useState(fixture);
 	const [bot, setBot] = useState("polite");
+	const [loading, setLoading] = useState(false);
 	return (
 		<div className="App">
-			<ResponsesList responses={responses}></ResponsesList>
-			<Form setResponses={setResponses}></Form>
+			<ResponsesList responses={responses} loading={loading}></ResponsesList>
+			<Form setResponses={setResponses} setLoading={setLoading}></Form>
 		</div>
 	);
 }

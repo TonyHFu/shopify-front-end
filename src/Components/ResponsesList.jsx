@@ -1,19 +1,19 @@
 import classNames from "classnames";
 import React from "react";
+import Loading from "./Loading";
 import "./styles/ResponsesList.scss";
 
 function ResponsesList(props) {
-	const { responses } = props;
+	const { responses, loading } = props;
 	console.log("responses", responses);
 	return (
-		<ul>
+		<ul id="messages">
 			{responses.map(response => {
 				return (
-					<div id="messages">
-						<li className={classNames(response.type)}> {response.message}</li>
-					</div>
+					<li className={classNames(response.type)}> {response.message}</li>
 				);
 			})}
+			{loading && <Loading></Loading>}
 		</ul>
 	);
 }

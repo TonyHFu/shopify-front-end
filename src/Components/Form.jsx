@@ -8,7 +8,7 @@ const configuration = new Configuration({
 const openai = new OpenAIApi(configuration);
 
 function Form(props) {
-	const { setResponses } = props;
+	const { setResponses, setLoading } = props;
 
 	const [prompt, setPrompt] = useState("");
 
@@ -62,6 +62,8 @@ function Form(props) {
 				message: tempPrompt,
 			},
 		]);
+
+		setLoading(true);
 		openai
 			.createCompletion("text-curie-001", {
 				prompt: tempPrompt,
@@ -78,6 +80,7 @@ function Form(props) {
 						message: completionSentence,
 					},
 				]);
+				setLoading(false);
 			})
 			.catch(error => {
 				if (error.response) {
