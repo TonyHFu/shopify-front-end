@@ -3,6 +3,7 @@ import Form from "./Components/Form";
 import ResponsesList from "./Components/ResponsesList";
 import { useState } from "react";
 import ConversationArea from "./Components/ConversationArea";
+import Choose from "./Components/Choose";
 
 const fixture = [
 	{ type: "prompt", message: "Tell me a bedtime story" },
@@ -20,12 +21,21 @@ const fixture = [
 	},
 ];
 
+const bots = [
+	{ name: "Joy", avatar: "/avatars/joy.png" },
+	{ name: "Sadness", avatar: "/avatars/sadness.png" },
+	{ name: "Disgust", avatar: "/avatars/disgust.png" },
+	{ name: "Fear", avatar: "/avatars/fear.png" },
+	{ name: "Anger", avatar: "/avatars/anger.png" },
+];
+
 function App() {
 	const [responses, setResponses] = useState(fixture);
 	const [bot, setBot] = useState("polite");
 	const [loading, setLoading] = useState(false);
 	return (
 		<div className="App">
+			<Choose bots={bots} setBot={setBot}></Choose>
 			<ConversationArea
 				responses={responses}
 				loading={loading}
