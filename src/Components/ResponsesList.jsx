@@ -5,7 +5,6 @@ import "./styles/ResponsesList.scss";
 
 function ResponsesList(props) {
 	const { responses, loading } = props;
-	console.log("responses", responses);
 	return (
 		<ul id="messages">
 			{responses.map(response => {

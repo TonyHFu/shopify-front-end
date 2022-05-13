@@ -12,9 +12,9 @@ function Choose(props) {
 		<div>
 			<h2>Choose who you want to chat with!</h2>
 			<ul id="bots-list">
-				{bots.map(bot => {
+				{bots.map((bot, i) => {
 					return (
-						<li className="bot-list-item">
+						<li className="bot-list-item" key={i}>
 							<p>{bot.name}</p>
 							<img
 								src={bot.avatar}

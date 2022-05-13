@@ -77,6 +77,23 @@ function App() {
 			)[selectedBot];
 			setResponses(currentConversation);
 		}
+
+		// return () => {
+		// 	const storedConversations = JSON.parse(
+		// 		localStorage.getItem("conversations")
+		// 	);
+		// 	storedConversations[selectedBot] = responses;
+		// 	console.log("responses", responses);
+		// 	console.log("storedConversations", storedConversations);
+		// 	localStorage.setItem(
+		// 		"conversations",
+		// 		JSON.stringify(storedConversations)
+		// 	);
+		// 	console.log(
+		// 		"localStorage.getItem('conversations')",
+		// 		localStorage.getItem("conversations")
+		// 	);
+		// };
 	}, [selectedBot]);
 
 	return (

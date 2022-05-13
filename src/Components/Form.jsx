@@ -36,7 +36,6 @@ function Form(props) {
 		}
 	});
 
-	console.log("botPrompt", botPrompt);
 	const handleSubmit = async e => {
 		e.preventDefault();
 
@@ -64,7 +63,6 @@ function Form(props) {
 			})
 			.then(completion => {
 				const completionSentence = completion.data.choices[0].text;
-				console.log(completionSentence);
 
 				setResponses(prev => [
 					...prev,
@@ -94,7 +92,7 @@ function Form(props) {
 				value={prompt}
 			></input>
 			<button type="submit" id="submit-prompt">
-				<i class="fa-solid fa-paper-plane"></i>
+				<i className="fa-solid fa-paper-plane"></i>
 			</button>
 		</form>
 	);
