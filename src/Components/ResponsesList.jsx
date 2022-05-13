@@ -8,7 +8,8 @@ function ResponsesList(props) {
 			{responses.map(response => {
 				return (
 					<li>
-						<p>{response}</p>
+						<p>prompt: {response.prompt}</p>
+						<p>response: {response.completed}</p>
 					</li>
 				);
 			})}

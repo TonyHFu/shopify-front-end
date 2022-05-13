@@ -30,7 +30,13 @@ function Form(props) {
 			const completionSentence = completion.data.choices[0].text;
 			console.log(completionSentence);
 
-			setResponses(prev => [...prev, completionSentence]);
+			setResponses(prev => [
+				...prev,
+				{
+					prompt: tempPrompt,
+					completed: completionSentence,
+				},
+			]);
 		} catch (error) {
 			if (error.response) {
 				console.log(error.response.status);
