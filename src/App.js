@@ -1,7 +1,7 @@
 import "./App.css";
 import Form from "./Components/Form";
 import ResponsesList from "./Components/ResponsesList";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import ConversationArea from "./Components/ConversationArea";
 import Choose from "./Components/Choose";
 
@@ -55,9 +55,30 @@ const bots = [
 ];
 
 function App() {
-	const [responses, setResponses] = useState(fixture);
+	const [responses, setResponses] = useState([]);
 	const [selectedBot, setSelectedBot] = useState("Joy");
 	const [loading, setLoading] = useState(false);
+
+	useEffect(() => {
+		if (localStorage.getItem("conversations") === null) {
+			localStorage.setItem(
+				"conversations",
+				JSON.stringify({
+					Joy: [],
+					Sadness: [],
+					Fear: [],
+					Disgust: [],
+					Anger: [],
+				})
+			);
+		} else {
+			const currentConversation = JSON.parse(
+				localStorage.getItem("conversations")
+			)[selectedBot];
+			setResponses(currentConversation);
+		}
+	}, [selectedBot]);
+
 	return (
 		<div className="App">
 			<Choose
