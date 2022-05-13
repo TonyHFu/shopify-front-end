@@ -20,38 +20,73 @@ function Form(props) {
 	const handleSubmit = async e => {
 		e.preventDefault();
 
-		try {
-			const tempPrompt = prompt;
-			setPrompt("");
-			setResponses(prev => [
-				...prev,
-				{
-					type: "prompt",
-					message: tempPrompt,
-				},
-			]);
-			const completion = await openai.createCompletion("text-curie-001", {
+		// try {
+		// 	const tempPrompt = prompt;
+		// 	setPrompt("");
+		// 	setResponses(prev => [
+		// 		...prev,
+		// 		{
+		// 			type: "prompt",
+		// 			message: tempPrompt,
+		// 		},
+		// 	]);
+		// 	const completion = await openai.createCompletion("text-curie-001", {
+		// 		prompt: tempPrompt,
+		// 		temperature: 0.5,
+		// 	});
+		// 	const completionSentence = completion.data.choices[0].text;
+		// 	console.log(completionSentence);
+
+		// 	setResponses(prev => [
+		// 		...prev,
+		// 		{
+		// 			type: "response",
+		// 			message: completionSentence,
+		// 		},
+		// 	]);
+		// } catch (error) {
+		// 	if (error.response) {
+		// 		console.log(error.response.status);
+		// 		console.log(error.response.data);
+		// 	} else {
+		// 		console.log(error.message);
+		// 	}
+		// }
+
+		const tempPrompt = prompt;
+		setPrompt("");
+		setResponses(prev => [
+			...prev,
+			{
+				type: "prompt",
+				message: tempPrompt,
+			},
+		]);
+		openai
+			.createCompletion("text-curie-001", {
 				prompt: tempPrompt,
 				temperature: 0.5,
-			});
-			const completionSentence = completion.data.choices[0].text;
-			console.log(completionSentence);
+			})
+			.then(completion => {
+				const completionSentence = completion.data.choices[0].text;
+				console.log(completionSentence);
 
-			setResponses(prev => [
-				...prev,
-				{
-					type: "response",
-					message: completionSentence,
-				},
-			]);
-		} catch (error) {
-			if (error.response) {
-				console.log(error.response.status);
-				console.log(error.response.data);
-			} else {
-				console.log(error.message);
-			}
-		}
+				setResponses(prev => [
+					...prev,
+					{
+						type: "response",
+						message: completionSentence,
+					},
+				]);
+			})
+			.catch(error => {
+				if (error.response) {
+					console.log(error.response.status);
+					console.log(error.response.data);
+				} else {
+					console.log(error.message);
+				}
+			});
 	};
 
 	return (
