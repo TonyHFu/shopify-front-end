@@ -9,7 +9,14 @@ const configuration = new Configuration({
 const openai = new OpenAIApi(configuration);
 
 function Form(props) {
-	const { setResponses, setLoading } = props;
+	const {
+		responses,
+		setResponses,
+		setLoading,
+		bots,
+		selectedBot,
+		setSelectedBot,
+	} = props;
 
 	const [prompt, setPrompt] = useState("");
 
@@ -18,6 +25,18 @@ function Form(props) {
 		setPrompt(e.target.value);
 	};
 
+	let botPrompt = bots.filter(bot => bot.name === selectedBot)[0].prompt;
+
+	responses.forEach(response => {
+		if (response.type === "prompt") {
+			botPrompt += "You: " + response.message + "\n";
+		}
+		if (response.type === "response") {
+			botPrompt += `${selectedBot}: ` + response.message + "\n";
+		}
+	});
+
+	console.log("botPrompt", botPrompt);
 	const handleSubmit = async e => {
 		e.preventDefault();
 
@@ -65,9 +84,12 @@ function Form(props) {
 		]);
 
 		setLoading(true);
+
+		botPrompt += "You: " + tempPrompt + `\n${selectedBot}:`;
+		console.log("botPrompt before sending", botPrompt);
 		openai
 			.createCompletion("text-curie-001", {
-				prompt: tempPrompt,
+				prompt: botPrompt,
 				temperature: 0.5,
 			})
 			.then(completion => {

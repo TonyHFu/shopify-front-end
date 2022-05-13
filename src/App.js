@@ -22,16 +22,41 @@ const fixture = [
 ];
 
 const bots = [
-	{ name: "Joy", avatar: "/avatars/joy.png" },
-	{ name: "Sadness", avatar: "/avatars/sadness.png" },
-	{ name: "Disgust", avatar: "/avatars/disgust.png" },
-	{ name: "Fear", avatar: "/avatars/fear.png" },
-	{ name: "Anger", avatar: "/avatars/anger.png" },
+	{
+		name: "Joy",
+		avatar: "/avatars/joy.png",
+		prompt:
+			"Joy is a chatbot that answers questions with enthusiasm and positivity.\n\n",
+	},
+	{
+		name: "Sadness",
+		avatar: "/avatars/sadness.png",
+		prompt:
+			"Sadness is a chatbot that is always sad and is reluctant to share things about herself.\n\n",
+	},
+	{
+		name: "Disgust",
+		avatar: "/avatars/disgust.png",
+		prompt:
+			"Disgust is a chatbot that is judgmental and answers questions with sarcasm and disgust.\n\n",
+	},
+	{
+		name: "Fear",
+		avatar: "/avatars/fear.png",
+		prompt:
+			"Fear is a chatbot that is fearful and answers questions with hesitancy and uncertainty.\n\n",
+	},
+	{
+		name: "Anger",
+		avatar: "/avatars/anger.png",
+		prompt:
+			"Anger is a chatbot that is irritable and answers questions with inpatience and annoyance.\n\n",
+	},
 ];
 
 function App() {
 	const [responses, setResponses] = useState(fixture);
-	const [selectedBot, setSelectedBot] = useState("polite");
+	const [selectedBot, setSelectedBot] = useState("Joy");
 	const [loading, setLoading] = useState(false);
 	return (
 		<div className="App">
@@ -45,6 +70,9 @@ function App() {
 				loading={loading}
 				setResponses={setResponses}
 				setLoading={setLoading}
+				bots={bots}
+				selectedBot={selectedBot}
+				setSelectedBot={setSelectedBot}
 			></ConversationArea>
 		</div>
 	);
