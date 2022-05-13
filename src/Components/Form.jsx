@@ -23,6 +23,13 @@ function Form(props) {
 		try {
 			const tempPrompt = prompt;
 			setPrompt("");
+			setResponses(prev => [
+				...prev,
+				{
+					type: "prompt",
+					message: tempPrompt,
+				},
+			]);
 			const completion = await openai.createCompletion("text-curie-001", {
 				prompt: tempPrompt,
 				temperature: 0.5,
@@ -33,8 +40,8 @@ function Form(props) {
 			setResponses(prev => [
 				...prev,
 				{
-					prompt: tempPrompt,
-					completed: completionSentence,
+					type: "response",
+					message: completionSentence,
 				},
 			]);
 		} catch (error) {

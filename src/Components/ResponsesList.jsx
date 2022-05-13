@@ -1,3 +1,4 @@
+import classNames from "classnames";
 import React from "react";
 import "./styles/ResponsesList.scss";
 
@@ -9,9 +10,7 @@ function ResponsesList(props) {
 			{responses.map(response => {
 				return (
 					<div id="messages">
-						<li className="prompt">prompt: {response.prompt}</li>
-
-						<li className="response">response: {response.completed}</li>
+						<li className={classNames(response.type)}> {response.message}</li>
 					</div>
 				);
 			})}
