@@ -1,8 +1,13 @@
+import classNames from "classnames";
 import React from "react";
 import "./styles/Choose.scss";
 
 function Choose(props) {
-	const { bots } = props;
+	const { bots, selectedBot, setSelectedBot } = props;
+
+	const handleSelect = currentBot => {
+		setSelectedBot(currentBot);
+	};
 	return (
 		<div>
 			<h2>Choose who you want to chat with!</h2>
@@ -11,7 +16,11 @@ function Choose(props) {
 					return (
 						<li className="bot-list-item">
 							<p>{bot.name}</p>
-							<img src={bot.avatar}></img>
+							<img
+								src={bot.avatar}
+								className={classNames({ selected: bot.name === selectedBot })}
+								onClick={() => handleSelect(bot.name)}
+							></img>
 						</li>
 					);
 				})}

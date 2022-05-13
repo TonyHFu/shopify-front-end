@@ -31,11 +31,15 @@ const bots = [
 
 function App() {
 	const [responses, setResponses] = useState(fixture);
-	const [bot, setBot] = useState("polite");
+	const [selectedBot, setSelectedBot] = useState("polite");
 	const [loading, setLoading] = useState(false);
 	return (
 		<div className="App">
-			<Choose bots={bots} setBot={setBot}></Choose>
+			<Choose
+				bots={bots}
+				setSelectedBot={setSelectedBot}
+				selectedBot={selectedBot}
+			></Choose>
 			<ConversationArea
 				responses={responses}
 				loading={loading}

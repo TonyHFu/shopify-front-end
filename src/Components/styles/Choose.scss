@@ -11,10 +11,14 @@
 		width: 100px;
 		object-fit: cover;
 		border-radius: 50%;
-		opacity: 50%;
+		opacity: 40%;
 
-		& .selected {
+		&:hover {
 			opacity: 100%;
 		}
+	}
+	.selected {
+		opacity: 100%;
+		border: 5px rgb(255, 241, 115) solid;
 	}
 }
