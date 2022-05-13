@@ -3,9 +3,11 @@
 	flex-direction: column;
 	justify-content: flex-end;
 
+	padding-inline-start: 0px;
+	padding: 10px;
+
 	li {
 		border-radius: 5px;
-		background-color: rgb(186, 237, 255);
 		list-style-type: none;
 		padding: 5px;
 		margin-top: 5px;
@@ -15,8 +17,18 @@
 
 .prompt {
 	align-self: flex-end;
+	background-image: linear-gradient(
+		to bottom right,
+		rgb(186, 237, 255),
+		rgb(117, 242, 194)
+	);
 }
 
 .response {
 	align-self: flex-start;
+	background-image: linear-gradient(
+		to bottom right,
+		rgb(247, 204, 255),
+		rgb(218, 145, 255)
+	);
 }

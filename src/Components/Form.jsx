@@ -1,5 +1,6 @@
 import { Configuration, OpenAIApi } from "openai";
 import { useState } from "react";
+import "./styles/Form.scss";
 
 const configuration = new Configuration({
 	apiKey: process.env.REACT_APP_OPENAI_SECRET,
@@ -94,14 +95,16 @@ function Form(props) {
 
 	return (
 		<form onSubmit={handleSubmit}>
-			<label htmlFor="prompt">Prompt: </label>
+			{/* <label htmlFor="prompt">Prompt: </label> */}
 			<input
 				type="text"
 				name="prompt"
 				onChange={handleChange}
 				value={prompt}
 			></input>
-			<input type="submit" value="Submit"></input>
+			<button type="submit" id="submit-prompt">
+				<i class="fa-solid fa-paper-plane"></i>
+			</button>
 		</form>
 	);
 }

@@ -2,6 +2,7 @@ import "./App.css";
 import Form from "./Components/Form";
 import ResponsesList from "./Components/ResponsesList";
 import { useState } from "react";
+import ConversationArea from "./Components/ConversationArea";
 
 const fixture = [
 	{ type: "prompt", message: "Tell me a bedtime story" },
@@ -25,8 +26,12 @@ function App() {
 	const [loading, setLoading] = useState(false);
 	return (
 		<div className="App">
-			<ResponsesList responses={responses} loading={loading}></ResponsesList>
-			<Form setResponses={setResponses} setLoading={setLoading}></Form>
+			<ConversationArea
+				responses={responses}
+				loading={loading}
+				setResponses={setResponses}
+				setLoading={setLoading}
+			></ConversationArea>
 		</div>
 	);
 }
