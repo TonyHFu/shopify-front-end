@@ -62,8 +62,6 @@ const bots = [
 	},
 ];
 
-const ThemeContext = React.createContext("Joy");
-
 function App() {
 	const [responses, setResponses] = useState([]);
 	const [selectedBot, setSelectedBot] = useState("Joy");
@@ -89,24 +87,24 @@ function App() {
 		}
 	}, [selectedBot]);
 
+	const { primaryColor } = bots.filter(bot => bot.name === selectedBot)[0];
+
 	return (
-		<div className="App">
-			<ThemeContext.Provider value={selectedBot}>
-				<Choose
-					bots={bots}
-					setSelectedBot={setSelectedBot}
-					selectedBot={selectedBot}
-				></Choose>
-				<ConversationArea
-					responses={responses}
-					loading={loading}
-					setResponses={setResponses}
-					setLoading={setLoading}
-					bots={bots}
-					selectedBot={selectedBot}
-					setSelectedBot={setSelectedBot}
-				></ConversationArea>
-			</ThemeContext.Provider>
+		<div className="App" style={{ backgroundColor: primaryColor }}>
+			<Choose
+				bots={bots}
+				setSelectedBot={setSelectedBot}
+				selectedBot={selectedBot}
+			></Choose>
+			<ConversationArea
+				responses={responses}
+				loading={loading}
+				setResponses={setResponses}
+				setLoading={setLoading}
+				bots={bots}
+				selectedBot={selectedBot}
+				setSelectedBot={setSelectedBot}
+			></ConversationArea>
 		</div>
 	);
 }

@@ -9,7 +9,7 @@ function Choose(props) {
 		setSelectedBot(currentBot);
 	};
 	return (
-		<div>
+		<div id="choose">
 			<h2>Choose who you want to chat with!</h2>
 			<ul id="bots-list">
 				{bots.map((bot, i) => {

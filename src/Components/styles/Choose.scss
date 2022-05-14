@@ -13,13 +13,23 @@
 		border-radius: 50%;
 		opacity: 40%;
 		border: 5px transparent solid;
+		position: relative;
 
 		&:hover {
 			opacity: 100%;
 		}
 	}
+
 	.selected {
 		opacity: 100%;
 		border: 5px rgb(255, 241, 115) solid;
+	}
+}
+
+#choose {
+	height: 35vh;
+	h2 {
+		margin-top: 0;
+		padding-top: 10px;
 	}
 }
