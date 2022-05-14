@@ -43,6 +43,17 @@ function Form(props) {
 		}
 	};
 
+	const handleClearHistory = e => {
+		e.preventDefault();
+		setResponses([]);
+		const storedConversations = JSON.parse(
+			localStorage.getItem("conversations")
+		);
+
+		storedConversations[selectedBot] = [];
+		localStorage.setItem("conversations", JSON.stringify(storedConversations));
+	};
+
 	const handleSubmit = async e => {
 		e.preventDefault();
 
@@ -137,6 +148,13 @@ function Form(props) {
 					className="fa-solid fa-paper-plane"
 					style={{ color: primaryColor }}
 				></i>
+			</button>
+			<button
+				id="clear-history"
+				onClick={handleClearHistory}
+				style={{ backgroundColor: primaryColor }}
+			>
+				Clear history
 			</button>
 		</form>
 	);

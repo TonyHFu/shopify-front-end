@@ -3,10 +3,12 @@
 	border: none;
 	color: rgb(255, 0, 234);
 	cursor: pointer;
+	position: relative;
+	bottom: 5px;
 }
 
 textarea {
-	width: 70vw;
+	width: 50vw;
 	font-family: inherit;
 	resize: none;
 }
@@ -14,4 +16,14 @@ textarea {
 form {
 	height: 5vh;
 	padding-bottom: 20px;
+}
+
+#clear-history {
+	position: relative;
+	bottom: 8px;
+	outline: inherit;
+	border: none;
+	border-radius: 3px;
+	padding: 2px;
+	cursor: pointer;
 }
