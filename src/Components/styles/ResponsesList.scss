@@ -7,15 +7,20 @@
 	padding: 10px;
 
 	li {
-		border-radius: 5px;
 		list-style-type: none;
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+	}
+	p {
+		border-radius: 5px;
 		padding: 5px;
 		margin-top: 5px;
 		margin-bottom: 5px;
 	}
 }
 
-.prompt {
+p.prompt {
 	align-self: flex-end;
 	background-image: linear-gradient(
 		to bottom right,
@@ -24,11 +29,25 @@
 	);
 }
 
-.response {
+li.response {
 	align-self: flex-start;
+}
+li.prompt {
+	align-self: flex-end;
+}
+
+p.response {
 	background-image: linear-gradient(
 		to bottom right,
 		rgb(247, 204, 255),
 		rgb(218, 145, 255)
 	);
+}
+
+.message-avatar {
+	height: 30px;
+	width: 30px;
+	object-fit: cover;
+	border-radius: 50%;
+	margin-right: 10px;
 }

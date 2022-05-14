@@ -15,7 +15,12 @@ function ConversationArea(props) {
 	} = props;
 	return (
 		<div id="conversation-area">
-			<ResponsesList responses={responses} loading={loading}></ResponsesList>
+			<ResponsesList
+				responses={responses}
+				loading={loading}
+				bots={bots}
+				selectedBot={selectedBot}
+			></ResponsesList>
 			<Form
 				setResponses={setResponses}
 				setLoading={setLoading}
