@@ -2,6 +2,7 @@ import "./App.scss";
 import React, { useEffect, useState } from "react";
 import ConversationArea from "./Components/ConversationArea";
 import Choose from "./Components/Choose";
+import Footer from "./Components/Footer";
 
 const fixture = [
 	{ type: "prompt", message: "Tell me a bedtime story" },
@@ -105,6 +106,7 @@ function App() {
 				selectedBot={selectedBot}
 				setSelectedBot={setSelectedBot}
 			></ConversationArea>
+			<Footer></Footer>
 		</div>
 	);
 }
