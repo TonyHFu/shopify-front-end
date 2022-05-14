@@ -4,3 +4,14 @@
 	color: rgb(255, 0, 234);
 	cursor: pointer;
 }
+
+textarea {
+	width: 70vw;
+	font-family: inherit;
+	resize: none;
+}
+
+form {
+	height: 5vh;
+	padding-bottom: 20px;
+}

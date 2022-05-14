@@ -1,6 +1,7 @@
 import { Configuration, OpenAIApi } from "openai";
 import { useState } from "react";
 import "./styles/Form.scss";
+import useMeasure from "react-use-measure";
 
 const configuration = new Configuration({
 	apiKey: process.env.REACT_APP_OPENAI_SECRET,
@@ -35,6 +36,12 @@ function Form(props) {
 			botPrompt += `${selectedBot}: ` + response.message + "\n";
 		}
 	});
+
+	const handleKeyDown = e => {
+		if (e.key === "Enter") {
+			handleSubmit(e);
+		}
+	};
 
 	const handleSubmit = async e => {
 		e.preventDefault();
@@ -102,14 +109,29 @@ function Form(props) {
 
 	const { primaryColor } = bots.filter(bot => bot.name === selectedBot)[0];
 
+	// Set textarea size
+	const [ref, bounds] = useMeasure();
+	const maxHeight = 5;
+
+	let inputHeight;
+
+	inputHeight = Math.min(
+		maxHeight,
+		Math.max(1, Math.ceil(prompt.length / bounds.width / 0.145))
+	);
+
 	return (
 		<form onSubmit={handleSubmit}>
-			<input
+			<textarea
+				id="message-input"
 				type="text"
 				name="prompt"
 				onChange={handleChange}
 				value={prompt}
-			></input>
+				ref={ref}
+				style={{ height: inputHeight * 18 }}
+				onKeyDown={handleKeyDown}
+			></textarea>
 			<button type="submit" id="submit-prompt">
 				<i
 					className="fa-solid fa-paper-plane"
