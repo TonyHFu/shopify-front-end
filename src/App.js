@@ -4,22 +4,6 @@ import ConversationArea from "./Components/ConversationArea";
 import Choose from "./Components/Choose";
 import Footer from "./Components/Footer";
 
-const fixture = [
-	{ type: "prompt", message: "Tell me a bedtime story" },
-	{
-		type: "response",
-		message: "Once upon a time, there was a princess who loved to sleep.",
-	},
-	{
-		type: "prompt",
-		message: "dfdnfjdn",
-	},
-	{
-		type: "response",
-		message: "sorry I couldn't understand that",
-	},
-];
-
 const bots = [
 	{
 		name: "Joy",

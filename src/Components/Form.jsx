@@ -10,14 +10,7 @@ const configuration = new Configuration({
 const openai = new OpenAIApi(configuration);
 
 function Form(props) {
-	const {
-		responses,
-		setResponses,
-		setLoading,
-		bots,
-		selectedBot,
-		setSelectedBot,
-	} = props;
+	const { responses, setResponses, setLoading, bots, selectedBot } = props;
 
 	const [prompt, setPrompt] = useState("");
 

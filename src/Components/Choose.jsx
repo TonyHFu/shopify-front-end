@@ -20,6 +20,7 @@ function Choose(props) {
 								src={bot.avatar}
 								className={classNames({ selected: bot.name === selectedBot })}
 								onClick={() => handleSelect(bot.name)}
+								alt={`${bot.name} avatar`}
 							></img>
 						</li>
 					);

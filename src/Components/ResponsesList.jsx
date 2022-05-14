@@ -19,7 +19,11 @@ function ResponsesList(props) {
 					return (
 						<li key={i} className={classNames(response.type)}>
 							{response.type === "response" && (
-								<img className="message-avatar" src={avatar}></img>
+								<img
+									className="message-avatar"
+									src={avatar}
+									alt={`${selectedBot} avatar`}
+								></img>
 							)}
 							{response.type === "response" && (
 								<p
