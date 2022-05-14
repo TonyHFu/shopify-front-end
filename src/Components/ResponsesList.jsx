@@ -6,7 +6,9 @@ import "./styles/ResponsesList.scss";
 function ResponsesList(props) {
 	const { responses, loading, bots, selectedBot } = props;
 
-	const avatar = bots.filter(bot => bot.name === selectedBot)[0].avatar;
+	const { avatar, primaryColor, secondaryColor } = bots.filter(
+		bot => bot.name === selectedBot
+	)[0];
 	return (
 		<ul id="messages">
 			{loading && <Loading></Loading>}
@@ -19,7 +21,19 @@ function ResponsesList(props) {
 							{response.type === "response" && (
 								<img className="message-avatar" src={avatar}></img>
 							)}
-							<p className={classNames(response.type)}>{response.message}</p>
+							{response.type === "response" && (
+								<p
+									className={classNames(response.type)}
+									style={{
+										backgroundImage: `linear-gradient(to bottom right, ${primaryColor}, ${secondaryColor})`,
+									}}
+								>
+									{response.message}
+								</p>
+							)}
+							{response.type === "prompt" && (
+								<p className={classNames(response.type)}>{response.message}</p>
+							)}
 						</li>
 					);
 				})}

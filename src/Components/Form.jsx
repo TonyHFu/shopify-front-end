@@ -100,6 +100,8 @@ function Form(props) {
 			});
 	};
 
+	const { primaryColor } = bots.filter(bot => bot.name === selectedBot)[0];
+
 	return (
 		<form onSubmit={handleSubmit}>
 			<input
@@ -109,7 +111,10 @@ function Form(props) {
 				value={prompt}
 			></input>
 			<button type="submit" id="submit-prompt">
-				<i className="fa-solid fa-paper-plane"></i>
+				<i
+					className="fa-solid fa-paper-plane"
+					style={{ color: primaryColor }}
+				></i>
 			</button>
 		</form>
 	);
