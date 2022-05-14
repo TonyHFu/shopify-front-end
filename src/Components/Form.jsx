@@ -135,6 +135,7 @@ function Form(props) {
 				ref={ref}
 				style={{ height: inputHeight * 18 }}
 				onKeyDown={handleKeyDown}
+				placeholder="How are you feeling today?"
 			></textarea>
 			<button type="submit" id="submit-prompt">
 				<i
