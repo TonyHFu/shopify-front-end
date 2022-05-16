@@ -1,3 +1,5 @@
+## Find the live app [here](https://inside-out-shopify.netlify.app/)
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
