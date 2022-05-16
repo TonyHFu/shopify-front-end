@@ -126,6 +126,13 @@ function Form(props) {
 
 	return (
 		<form onSubmit={handleSubmit}>
+			<button
+				id="clear-history"
+				onClick={handleClearHistory}
+				style={{ backgroundColor: primaryColor }}
+			>
+				Clear history
+			</button>
 			<textarea
 				id="message-input"
 				type="text"
@@ -135,20 +142,13 @@ function Form(props) {
 				ref={ref}
 				style={{ height: inputHeight * 18 }}
 				onKeyDown={handleKeyDown}
-				placeholder="How are you feeling today?"
+				placeholder="Say something! e.g. How are you feeling?"
 			></textarea>
 			<button type="submit" id="submit-prompt">
 				<i
 					className="fa-solid fa-paper-plane"
 					style={{ color: primaryColor }}
 				></i>
-			</button>
-			<button
-				id="clear-history"
-				onClick={handleClearHistory}
-				style={{ backgroundColor: primaryColor }}
-			>
-				Clear history
 			</button>
 		</form>
 	);
